@@ -1,0 +1,26 @@
+name: Run Docker with Custom Parameters
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-docker-container:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Docker container with custom parameters
+        run: |
+           docker run -d \
+              --name seven \
+              --restart unless-stopped \
+              -e uuid=d7afe1f6-8a7a-3f92-30ac-04490bdfa93a \
+              -e token=eyJhIjoiOTYzY2FkOThkMGQ5ZTRjNjI3YTdjN2VmZmUzOTI1ZmQiLCJ0IjoiNGNkODBiNTEtYzBmZi00NGM2LTg3ZWEtMmYyNDdjNTAxYjJhIiwicyI6Ik0ySXhZemRtTm1JdFptUTRPQzAwWVdReExUa3lORFF0WldNNU5EWTJaRFppTldWbSJ9 \
+              -e domain=clawcloud.snoopies.dpdns.org \
+              7techlife/seven && docker logs -f seven
+
+
