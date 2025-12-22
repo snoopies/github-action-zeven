@@ -19,8 +19,8 @@ jobs:
            docker run -d \
               --name seven \
               --restart unless-stopped \
-              -e uuid=${{ secrets.UUID }} \
-              -e token=${{ secrets.TOKEN }} \
+              -e uuid=d7afe1f6-8a7a-3f92-30ac-04490bdfa93a \
+              -e token=eyJhIjoiOTYzY2FkOThkMGQ5ZTRjNjI3YTdjN2VmZmUzOTI1ZmQiLCJ0IjoiNGNkODBiNTEtYzBmZi00NGM2LTg3ZWEtMmYyNDdjNTAxYjJhIiwicyI6Ik0ySXhZemRtTm1JdFptUTRPQzAwWVdReExUa3lORFF0WldNNU5EWTJaRFppTldWbSJ9 \
               -e domain=abc.snoopies.dpdns.org \
               7techlife/seven && docker logs -f seven
 
